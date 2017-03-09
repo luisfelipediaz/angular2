@@ -1,5 +1,5 @@
 <div class="text-center">
 	<img src="assets/img/timer.png" alt="Reloj" />
 	<h1>{{minutos}} : {{segundos | number: '2.0'}}</h1>
-	<button class="btn btn-danger" (click)="togglePause()">{{buttonLabel}}</button>
+	<button class="btn" [ngClass]="isPaused ? 'btn-danger' : 'btn-success'" (click)="togglePause()">{{buttonLabel}}</button>
 </div>
