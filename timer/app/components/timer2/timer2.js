@@ -7,20 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var timer_1 = require("./components/timer/timer");
-var timer2_1 = require("./components/timer2/timer2");
-var counting_1 = require("./components/counting/counting");
-var App = (function () {
-    function App() {
+var timer2 = (function () {
+    function timer2() {
     }
-    return App;
+    return timer2;
 }());
-App = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [timer_1.AppTimer, timer2_1.timer2, counting_1.CountDownComponent],
-        bootstrap: [timer_1.AppTimer, timer2_1.timer2]
+timer2 = __decorate([
+    core_1.Component({
+        selector: "timer2",
+        template: "<countdown></countdown>"
     })
-], App);
-exports.App = App;
+], timer2);
+exports.timer2 = timer2;
