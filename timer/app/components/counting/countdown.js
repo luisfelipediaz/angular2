@@ -14,19 +14,36 @@ var CountDownComponent = (function () {
     function CountDownComponent() {
         var _this = this;
         this.seconds = 25;
+        this.complete = new core_1.EventEmitter();
+        this.progress = new core_1.EventEmitter();
         this.intervalId = setInterval(function () { return _this.tick(); }, 1000);
     }
     CountDownComponent.prototype.tick = function () {
-        if (--this.seconds < 0) {
+        if (--this.seconds < 1) {
             clearInterval(this.intervalId);
+            this.complete.emit(null);
         }
+        this.progress.emit(this.seconds);
     };
     return CountDownComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], CountDownComponent.prototype, "seconds", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], CountDownComponent.prototype, "complete", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], CountDownComponent.prototype, "progress", void 0);
 CountDownComponent = __decorate([
     core_1.Component({
         selector: "countdown",
-        template: "<h1>Quedan: {{seconds}}</h1>"
+        template: "<h1>Quedan: {{seconds}}</h1>",
+        encapsulation: core_1.ViewEncapsulation.Emulated
     }),
     __metadata("design:paramtypes", [])
 ], CountDownComponent);

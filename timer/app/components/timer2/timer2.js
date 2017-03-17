@@ -10,12 +10,15 @@ var core_1 = require("@angular/core");
 var timer2 = (function () {
     function timer2() {
     }
+    timer2.prototype.onCountdownCompleted = function () {
+        alert('¡Tiempo Acabado!');
+    };
     return timer2;
 }());
 timer2 = __decorate([
     core_1.Component({
         selector: "timer2",
-        template: "<countdown></countdown>"
+        templateUrl: "./app/components/timer2/timer2.html"
     })
 ], timer2);
 exports.timer2 = timer2;

@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppTimer } from "./components/timer/timer"
 
 import { timer2 } from "./components/timer2/timer2";
-import { CountDownComponent } from "./components/counting/counting"
+import { CountDownComponent } from "./components/counting/countdown"
 
 @NgModule({
 	imports: [ BrowserModule ],

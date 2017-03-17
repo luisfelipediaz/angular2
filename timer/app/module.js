@@ -10,7 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var timer_1 = require("./components/timer/timer");
 var timer2_1 = require("./components/timer2/timer2");
-var counting_1 = require("./components/counting/counting");
+var countdown_1 = require("./components/counting/countdown");
 var App = (function () {
     function App() {
     }
@@ -19,7 +19,7 @@ var App = (function () {
 App = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [timer_1.AppTimer, timer2_1.timer2, counting_1.CountDownComponent],
+        declarations: [timer_1.AppTimer, timer2_1.timer2, countdown_1.CountDownComponent],
         bootstrap: [timer_1.AppTimer, timer2_1.timer2]
     })
 ], App);
