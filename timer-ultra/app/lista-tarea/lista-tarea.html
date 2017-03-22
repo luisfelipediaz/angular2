@@ -9,12 +9,16 @@
 			</span>
 		</h3>
 		<p>
-			<span *ngFor="let queuedTask of tasks">
-				<tarea-task-icons [task]="queuedTask" size="50">
-
+			<span *ngFor="let queuedTask of tasks | tareaQueuedOnly: true">
+				<tarea-task-icons
+				[task]="queuedTask"
+				[taskTooltip]="tooltip"
+				size="50">
 				</tarea-task-icons>
 			</span>
 		</p>
+		<p #tooltip [hidden]="queuedTareas === 0">Apunta con el Ratón para detalles</p>
+
 		<h4>
 			Cartera de tareas
 		</h4>

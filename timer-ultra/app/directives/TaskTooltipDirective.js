@@ -1,4 +1,3 @@
-/*Forma 2*/
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,46 +9,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/*Forma 1*/
 var core_1 = require("@angular/core");
-var TaskIconsComponent = (function () {
-    function TaskIconsComponent() {
-        this.icons = [];
+var TaskTooltipDirective = (function () {
+    function TaskTooltipDirective() {
     }
-    /*@Input() taskTooltip: any;
-
-    @HostListener('mouseover')
-    onMouseOver(){
+    TaskTooltipDirective.prototype.onMouseOver = function () {
         if (!this.defaultTooltipText && this.taskTooltip) {
             this.defaultTooltipText = this.taskTooltip.innerText;
         }
         this.taskTooltip.innerText = this.task.name;
-    }
-
-    @HostListener('mouseout')
-    onMouseOut() {
+    };
+    TaskTooltipDirective.prototype.onMouseOut = function () {
         if (this.taskTooltip) {
             this.taskTooltip.innerText = this.defaultTooltipText;
         }
-    }*/
-    TaskIconsComponent.prototype.ngOnInit = function () {
-        this.icons.length = this.task.tareasRequeridas;
-        this.icons.fill({ name: this.task.name });
     };
-    return TaskIconsComponent;
+    return TaskTooltipDirective;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], TaskIconsComponent.prototype, "task", void 0);
+], TaskTooltipDirective.prototype, "task", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Number)
-], TaskIconsComponent.prototype, "size", void 0);
-TaskIconsComponent = __decorate([
-    core_1.Component({
-        selector: "tarea-task-icons",
-        template: "<img *ngFor=\"let icon of icons\"\n\tsrc=\"../assets/img/timer.png\" width=\"{{size}}\"/>"
+    __metadata("design:type", Object)
+], TaskTooltipDirective.prototype, "taskTooltip", void 0);
+__decorate([
+    core_1.HostListener('mouseover'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TaskTooltipDirective.prototype, "onMouseOver", null);
+__decorate([
+    core_1.HostListener('mouseout'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TaskTooltipDirective.prototype, "onMouseOut", null);
+TaskTooltipDirective = __decorate([
+    core_1.Directive({
+        selector: "[task]"
     })
-], TaskIconsComponent);
-exports.TaskIconsComponent = TaskIconsComponent;
+], TaskTooltipDirective);
+exports.TaskTooltipDirective = TaskTooltipDirective;
