@@ -14,6 +14,7 @@ export class TaskIconsComponent implements OnInit{
 	icons: Object[] = [];
 	@Input() task: Task
 	@Input() size: number;
+	//Para la forma uno este comentario se debe descomentarear
 	/*@Input() taskTooltip: any;
 
 	@HostListener('mouseover')

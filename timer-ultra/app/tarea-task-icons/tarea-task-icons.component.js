@@ -16,6 +16,7 @@ var TaskIconsComponent = (function () {
     function TaskIconsComponent() {
         this.icons = [];
     }
+    //Para la forma uno este comentario se debe descomentarear
     /*@Input() taskTooltip: any;
 
     @HostListener('mouseover')
