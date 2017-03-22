@@ -1,18 +1,19 @@
 <div class="container text-center">
   <img src="assets/img/timer.png" alt="Reloj"/>
   <countdown
-  [seconds]="25"
+  [seconds]="segundos"
   (complete)="onCountdownCompleted()"
+  (progress)="onCountProgress()"
   #counter>
 </countdown>
 <p>
-  <button class="btn btn-default" (click)="counter.seconds = 25">
+  <button class="btn btn-default" (click)="segundos = 40">
     Restablecer contador a 25 segundos
   </button>
 </p>
 <p *ngIf="counter.seconds < 10">
   ¡Ten cuidado! Sólo quedan
-  <strong>{{ counter.seconds }} segundos</strong>
+  <strong>{{ counter.seconds }} segundos y eran {{segundos}}</strong>
   .
 </p>
 </div>
