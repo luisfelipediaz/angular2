@@ -1,6 +1,20 @@
 <div class="container text-center">
 	<img src="../assets/img/timer.png" />
 	<div class="container">
+
+		<h3>
+			{{ queuedTareas | i18nPlural: queuedHeaderMapping }} para hoy
+			<span class="small" *ngIf="queuedTareas > 0">
+				(Tiempo estimado:{{ queuedTareas * 25 | formateoHoraTareas }})	
+			</span>
+		</h3>
+		<p>
+			<span *ngFor="let queuedTask of tasks">
+				<tarea-task-icons [task]="queuedTask" size="50">
+
+				</tarea-task-icons>
+			</span>
+		</p>
 		<h4>
 			Cartera de tareas
 		</h4>
@@ -28,6 +42,9 @@
 			<tbody>
 				<tr *ngFor="let task of tasks; let i = index">
 					<th scope="row">{{i}}
+						<span *ngIf="task.queued" class="label label-info">
+							En cola
+						</span>
 					</th>
 					<td>
 						{{task.name | slice: 0:35}}
@@ -35,15 +52,33 @@
 					</td>
 					<td>
 						{{task.deadline | date: 'fullDate'}}
-						<span *ngIf="task.deadline < today" class="lable label-danger">
+						<span *ngIf="task.deadline < today" class="label label-danger">
 							Atrasado
 						</span>
 					</td>
 					<td class="text-center">
 						{{task.tareasRequeridas}}
 					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+					<td>
+						<button type="button" class="btn btn-default btn-xs"
+						(click)="toggleTask(task)"
+						[ngSwitch]="task.queued">
+						<div *ngSwitchCase="false">
+							<i class="glyphicon glyphicon-plus-sign"></i>
+							Añadir
+						</div>
+						<div *ngSwitchCase="true">
+							<i class="glyphicon glyphicon-minus-sign"></i>
+							Quitar
+						</div>
+						<div *ngSwitchDefault>
+							<i class="glyphicon glyphicon-plus-sign"></i>
+							Añadir
+						</div>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 </div>

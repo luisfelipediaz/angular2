@@ -26,5 +26,14 @@ export class TaskService{
 				tareasRequeridas: 3
 			}
 		];
+
+		this.taskStore = tasks.map(task => {
+			return {
+				name: task.name,
+				deadline: new Date(task.deadline),
+				queued: false,
+				tareasRequeridas: task.tareasRequeridas
+			}
+		});
 	}
 }

@@ -13,10 +13,27 @@ var core_1 = require("@angular/core");
 var TaskService_1 = require("../servicios/TaskService");
 var TaskCompoment = (function () {
     function TaskCompoment() {
+        this.queuedHeaderMapping = {
+            '=0': 'Sin tareas',
+            '=1': 'Una tarea',
+            'other': '# tareas'
+        };
         var taskService = new TaskService_1.TaskService();
         this.tasks = taskService.taskStore;
         this.today = new Date();
+        this.actualizarTareasEnCola();
     }
+    TaskCompoment.prototype.toggleTask = function (task) {
+        task.queued = !task.queued;
+        this.actualizarTareasEnCola();
+    };
+    TaskCompoment.prototype.actualizarTareasEnCola = function () {
+        this.queuedTareas = this.tasks
+            .filter(function (task) { return task.queued; })
+            .reduce(function (tareas, queuedTask) {
+            return tareas + queuedTask.tareasRequeridas;
+        }, 0);
+    };
     return TaskCompoment;
 }());
 TaskCompoment = __decorate([

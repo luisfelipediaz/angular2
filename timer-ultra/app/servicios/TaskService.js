@@ -25,6 +25,14 @@ var TaskService = (function () {
                 tareasRequeridas: 3
             }
         ];
+        this.taskStore = tasks.map(function (task) {
+            return {
+                name: task.name,
+                deadline: new Date(task.deadline),
+                queued: false,
+                tareasRequeridas: task.tareasRequeridas
+            };
+        });
     }
     return TaskService;
 }());
